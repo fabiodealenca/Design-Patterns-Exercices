@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Behavioral</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+    #search, #upload, #execute, #neighbors{
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="col">Computer 1</h1>
+          <hr>
+          <div class="col input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Command&nbsp;&nbsp;</label>
+            </div>
+            <select class="custom-select" onchange="setCommand(value)" id="command">
+              <option selected>Select a command</option>
+              <option value='search'>Search</option>
+              <option value='upload'>Upload</option>
+              <option value='execute'>Execute</option>
+              <option value='neighbors'>Neighbors</option>
+            </select>
+          </div>
+            <div id="search">
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Keywords&nbsp;&nbsp;&nbsp; </span>
+                </div>
+                <input type="text" class="form-control" id="keyword" value="music mp3" placeholder="keywords">
+              </div>
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Destination</span>
+                </div>
+                <input type="text" class="form-control" id="destination" value="100.22.11.25:8888" placeholder="destination">
+              </div>
+            </div>
+
+            <div id="upload">
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" onchange="uploadContent(this)" id="content">
+                  <label class="custom-file-label content-label" for="content">Choose file</label>
+                </div>
+              </div>
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Filename&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                <input type="text" class="form-control" id="filename" value="Filename" placeholder="Filename">
+              </div>
+            </div>
+
+            <div id="execute">
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Script&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                <input type="text" class="form-control" id="script" value="music.sh" placeholder="script">
+              </div>
+            </div>
+
+            <div id="neighbors">
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="depth">Depth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <select class="custom-select" id="depth">
+                  <option selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Destination</span>
+                </div>
+                <input type="text" class="form-control" id="destination2" value="90.12.50.21:8975" placeholder="destination">
+              </div>
+            </div>
+
+            <hr>
+            <div style="text-align: center;">
+              <button type="button" class="btn btn-primary" type="submit" onclick="iniciarInstancia(form)">Run</button>
+            </div>
+          <div class="col-md-6">
+            <hr>
+            <code id="chamada">
+            </code>
+            <br>
+            <code id="status" style="color: green">
+            </code>
+            <br>
+            <code id="ping">
+            </code>
+         </div>
+        </div>
+     </div>
+    </form>
+  </body>
+<script src="frontScript.js" type="text/javascript"></script>
+<script src="behavioral.js" type="text/javascript"></script>
+</html>
